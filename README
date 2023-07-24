@@ -5,23 +5,22 @@ Qt全局热键
 
 Linux下
 {
-  在.pro文件中
+在.pro文件中
 	QT += x11extras
 	...
-	include(qxtglobalshortcut/qxtglobalshortcut.pri)
+	include(QtGlobalHotKey/qxtglobalshortcut.pri)
 	...
 	unix|win32: LIBS += -lstdc++ -lX11
 
-  在主界面/其他界面头文件中包含
-	#include "qxtglobalshortcut.h"
+头文件中包含
+	#include "qxtglobalshortcut.h"  or  #include "QtGlobalHotKey/qxtglobalshortcut.h"
 
-  在主界面/其他界面的构造函数中对热键进行注册
+对热键进行注册
 	QxtGlobalShortcut * sc = new QxtGlobalShortcut(QKeySequence("Ctrl+Alt+Q"), this);
     connect(sc, SIGNAL(activated()),this, SLOT(toggle()));
 
-  toggle（）----> 自定义槽函数
-
-  以上步骤完成即可使用全局热键（注意：注册未成功会在调试输出窗口给出提示，留意）
+toggle（）----> 自定义槽函数
+以上步骤完成即可使用全局热键（注意：注册未成功会打印提示，留意）
 }
 
 也可以支持Windows与Mac系统，但需要自己去调整代码或配置
