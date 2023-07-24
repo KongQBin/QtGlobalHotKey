@@ -1,0 +1,25 @@
+2020-05-08
+Qt全局热键
+使用方式：
+将此文件夹放入要使用全局热键的项目目录
+
+Linux下
+{
+  在.pro文件中
+	QT += x11extras
+	...
+	include(qxtglobalshortcut/qxtglobalshortcut.pri)
+	...
+	unix|win32: LIBS += -lstdc++ -lX11
+
+  在主界面/其他界面头文件中包含
+	#include "qxtglobalshortcut.h"
+
+  在主界面/其他界面的构造函数中对热键进行注册
+	QxtGlobalShortcut * sc = new QxtGlobalShortcut(QKeySequence("Ctrl+Alt+Q"), this);
+    connect(sc, SIGNAL(activated()),this, SLOT(toggle()));
+
+  toggle（）----> 自定义槽函数
+
+  以上步骤完成即可使用全局热键（注意：注册未成功会在调试输出窗口给出提示，留意）
+}
