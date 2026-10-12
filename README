@@ -1,5 +1,5 @@
-2020-05-08
-Qt全局热键
+Qt全局热键（2020-05-08）
+
 使用方式：
 将此文件夹放入要使用全局热键的项目目录
 
@@ -24,3 +24,7 @@ toggle（）----> 自定义槽函数
 }
 
 也可以支持Windows与Mac系统，但需要自己去调整代码或配置
+
+Acknowledgement / 许可说明
+本项目中的全局热键实现提取/移植自开源项目 [LibQxt](https://github.com/flywire/libqxt) 的 `QxtGlobalShortcut` 模块。
+代码遵循 LibQxt 原生许可协议（CPL 1.0 / LGPL 2.1）。
